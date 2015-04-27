@@ -1,7 +1,7 @@
 FROM centos:centos7
 MAINTAINER Steven Edwards <cureadvocate@gmail.com>
 
-RUN yum -y install epel-release &&
+RUN rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm &&
     yum -y install cpp gcc-c++ cmake git psmisc {binutils,boost,jemalloc}-devel \
     {sqlite,tbb,bzip2,openldap,readline,elfutils-libelf,gmp,lz4,pcre}-devel \
     lib{xslt,event,yaml,vpx,png,zip,icu,mcrypt,memcached,cap,dwarf}-devel \
