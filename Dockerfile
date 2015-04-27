@@ -9,7 +9,8 @@ RUN yum -y install cpp gcc-c++ cmake git psmisc {binutils,boost,jemalloc}-devel 
     {unixODBC,expat,mariadb}-devel lib{edit,curl,xml2,xslt}-devel \
     glog-devel oniguruma-devel ocaml gperf enca libjpeg-turbo-devel make &&
     cd /tmp && git clone https://github.com/facebook/hhvm -b HHVM-3.7 hhvm --recursive &&
-    cd /tmp/hhvm && cmake . -DMYSQL_UNIX_SOCK_ADDR=/dev/null &&
-    make && make install && yum clean all && rm -rf /tmp/*
+    cd /tmp/hhvm && cmake . -DMYSQL_UNIX_SOCK_ADDR=/dev/null
+
+RUN make && make install && yum clean all && rm -rf /tmp/*
 
 CMD echo "Success!"
